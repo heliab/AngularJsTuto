@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Expresiones</title>
+	<meta charset="utf-8">
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link  rel="stylesheet" href="/Practicas/Angularjs/styles/styles.css" type="text/css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+		<link  rel="stylesheet" href="/Practicas/Angularjs/styles/dracula.css" type="text/css">
+<script src="/Practicas/Angularjs/scripts/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+	</head>
+<body>
+<nav class="nav-wrapper">
+<img id="logo" src="/Practicas/AngularJs/imagenes/angularshield.png" class="brand-logo center"><!-- Contenedor de la imagen del logo -->
+  	 <ul id="nav-mobile" class="left hide-on-med-and-down">
+  		<li class="active"><a href="index.html">Inicio</a> </li>
+  		<li><a href="Elementos.html">Elementos</a></li>
+  		<li><a href="Ejemplos.html">Ejemplos</a></li>
+  	</ul>	
+</nav>
+<main class="myContainer">
+	<div class="row">
+		<div class="col s12">
+			<h4 class="teal-text lighten-2">Expresiones</h4>
+			<article>
+				<p class="flow-text">Las expresiones en Angularjs están contenidas dentro de <code class=" red-text accent-3">{{ }}</code>.</p>
+				<p class="flow-text"> Las expresiones enlazan los datos a los elementos HTML. Únicamente interpretado dentro de la directiva <code class="blue-text grey lighten-1">ng-app</code></p>
+				<hr>
+			</article>
+			<h4 class="teal-text lighten-2"><code>ng-app</code> instalado</h4>
+				<p>El article de abajo tiene instalada la directiva <code>ng-app</code></p>
+			<article ng-app>
+				<div >
+					<p>La suma es {{ 5+5 }}</p>
+				</div>
+				<div>
+					<p class="flow-text">
+						
+					</p>
+				</div>
+			
+			<hr>
+			<h4 class="teal-text lighten-2">Inicializando valores con <code class="blue-text">ng-init</code></h4>
+				<p class="flow-text">Con <code>ng-init</code> se inicializan valores de las directivas</p>
+				<p>El div de abajo tiene inicializado el color de la letra con clases de materialize</p>
+				<div ng-app ng-init="myColor='blue-text'">
+					<p class="{{myColor}}">La clase para el color de este párrafo es {{ myColor }}</p>
+				</div>
+				<hr>
+				<h4 class="teal-text lighten-2">Reemplazando las expresiones <code class="blue-text">ng-bind</code></h4>
+				<p class="flow-text">En vez de vincular variables mediante expresiones tambien se puede hacer uso de <code class="grey darken-2 amber-text">ng-bind='variable angularjs'</code> </p>
+			</article>
+		</div>
+	</div>
+</main>
+</body>
+</html>

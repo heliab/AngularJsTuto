@@ -1,0 +1,22 @@
+#logo
+{
+	height: auto;
+	padding-top: 3px;
+	padding-left: 2px;
+	width: 7em;
+}
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+main {
+    flex: 1 0 auto;
+  }
+.myContainer
+{
+	padding-left: 1em;
+	padding-right: 1em;
+}
+      
