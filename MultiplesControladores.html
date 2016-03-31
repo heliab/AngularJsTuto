@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="multiplesControladores">
+<head>
+	<title>Multiples Controladores</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="controller1">
+	<p>Primer nombre: <span ng-bind="nombre"></span></p>
+	<hr>
+</div>
+<div ng-controller="controller2">
+	<p>Primer Apellido: <span ng-bind="apellido"></span></p>
+</div>
+<script type="text/javascript">
+	var app= angular.module('multiplesControladores', []) //Se puede usar solo una variable para el resto de controladores
+	app.controller('controller1', [ '$scope', function($scope) {
+		$scope.nombre="Haniel"
+	}])
+    app.controller('controller2', [ '$scope', function($scope) {
+		$scope.apellido="Lopez"
+	}])
+</script>
+</body>
+</html>

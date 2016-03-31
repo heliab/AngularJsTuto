@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="listasApp">
+<head>
+	<title>Listas</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="nombres">
+{{10+10}}
+Nombres
+	<ul>
+		<li ng-repeat="nombreElemento in nombreArreglo" ng-bind="nombreElemento">
+		</li>
+	</ul>
+Nombres completos
+<ul>
+	<li ng-repeat="nombreIndividual in nombresCompletos" ng-bind="nombreIndividual.nombre + ' ' + nombreIndividual.apellido"></li>
+</ul>
+</div>
+<script type="text/javascript">
+	var myModule=angular.module('listasApp', [])
+	myModule.controller('nombres' , ['$scope', function($scope) {
+			$scope.nombreArreglo= ["Ricardo","Jenny","Jafet"];
+			//Declarando objetos Javascript
+			$scope.nombresCompletos=[
+				{nombre:"Jenny", apellido:"Mendieta"},
+				{nombre:"Jafet", apellido:"Lopez"}
+			]
+	}])
+</script>
+</body>
+</html>

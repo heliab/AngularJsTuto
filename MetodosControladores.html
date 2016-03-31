@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="miApp">
+<head>
+<meta charset="utf-8">
+	<title>Creando metodos en un controlador</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="circunferencia">
+<h4>Calculo circunferencia</h4>
+<p>Digite el diámetro:</p>
+<input type="text" ng-model="diametro"></input>
+<button ng-click="calcularResultado()"> Calcular </button>
+<p>El diátetro es: <span ng-bind="resultado"></span></p>
+
+</div>
+<script type="text/javascript">
+
+	var moduleInit= angular.module('miApp', [])
+//Los cálculos dentro del controlador solo pueden hacerse dentro de métodos.
+	moduleInit.controller('circunferencia',[ '$scope' , function($scope){
+		$scope.diametro=0
+		var pi=3.14
+		$scope.calcularResultado=function(){
+			$scope.resultado=$scope.diametro*pi
+		}
+	} ])
+</script>
+</body>
+</html>

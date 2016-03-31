@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="filterApp">
+<head>
+	<title>Filtro de datos</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+</head>
+<body>
+<h1>Agenda</h1>
+<input type="text" value="Busqueda" ng-model="criterio">
+<div ng-controller="contoller1">
+	<p ng-repeat="usuario in agenda | filter : criterio " ng-bind="usuario.nombre  + ' ' + usuario.telefono"></p>
+</div>
+<script type="text/javascript">
+	var moduleInit = angular.module('filterApp', [])
+	moduleInit.controller('contoller1', [ '$scope', function($scope){
+		$scope.agenda = [
+			{nombre: 'Maria', telefono:'123'},
+			{nombre: 'Carmen', telefono:'124'},
+			{nombre: 'Gloria', telefono:'125'},
+			{nombre: 'Teresa', telefono:'128'}
+
+		]
+	}])
+</script>
+</body>
+</html>

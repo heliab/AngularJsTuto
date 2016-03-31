@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="estilosApp">
+<head>
+	<title>Cambiar estilo</title>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+
+	<style type="text/css">
+.clase1{
+	background-color: lime;
+border-color: gray;
+}
+	</style>
+
+</head>
+<body>
+<div ng-controller="estiloAngular">
+	<div ng-class="clase">
+		<p ng-style="textoEstilo">Soy un párrafo normal</p>
+	</div>
+<button ng-click="cambioLetra()">Cambio estilos letra</button>
+<button ng-click="asignarClase()">Cambio clase</button>
+<button ng-click="limpiarClase()">Limpiar clase</button>
+
+<br>
+<hr>
+<div>
+	<p ng-show="estado">Soy un mensaje</p>
+</div>
+<button ng-click="visibilidadDiv()">Ocultar div</button>
+<hr>
+<img ng-src={{direccion}}>
+<button ng-click="cambiarImagen('imagenes/AngularShield.png')">Imangen 1</button>
+<button ng-click="cambiarImagen('imagenes/angularjs.png')">Imangen 2</button>
+
+</div>
+<script type="text/javascript">
+	var moduleVar = angular.module('estilosApp', [])
+	moduleVar.controller('estiloAngular', ['$scope', function($scope){
+
+$scope.estado=true
+			$scope.cambioLetra=function(){
+				$scope.textoEstilo = {"color": "red" , "background":"teal"}
+			}
+
+			$scope.asignarClase=function(){
+				$scope.clase="clase1"
+			}
+
+			$scope.limpiarClase=function(){
+				$scope.clase=""
+				$scope.textoEstilo=""
+			}
+			$scope.visibilidadDiv=function(){
+				$scope.estado=false
+			}
+			$scope.direccion="imagenes/AngularShield.png"
+			$scope.cambiarImagen=function(imagen){
+				$scope.direccion=imagen
+			}
+}])
+
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="ventaFrutas">
+<head>
+	<title>Controladores</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+
+</head>
+<body>
+<div ng-controller="controlador1">
+<h4>Tienda de frutas</h4>
+<h5>{{ precio | currency }} cada uno</h5>
+
+<label>Cantidad de mangos:</label>
+<input type="text" ng-model="cantidad">
+
+<br>
+
+<p>Precio total <span ng-bind="precio * cantidad | currency"></span></p>
+</div>
+<script type="text/javascript">
+//Se declara el módulo de la aplicación
+	var miApp= angular.module('ventaFrutas',[])
+	//Se inicializa el módulo. Dentro de miApp se define un controlador
+	miApp.controller('controlador1', [ '$scope',function ($scope) {
+		$scope.cantidad=0
+		$scope.precio=1.20
+	}]) //$scope permite acceder a todos los elementos dentro del controlador, y los elementos del controlador al controlador mismo
+</script>
+</body>
+</html>

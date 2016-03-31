@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="eventApp" >
+<head>
+	<title>Eventos angular</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="contoller1">
+<button ng-click="eventoClickSimple()">Clickeame</button>
+<h4>{{ eventoClick }} </h4>
+
+<hr>
+<button ng-dblclick="eventoDobleClick()">Clickeame</button>
+<h4>{{ eventoClick }} </h4>
+
+<hr>
+
+<img src="/Practicas/AngularJs/imagenes/angularshield.png" ng-mouseleave="dejaImagen()" ng-mouseenter="sobreImagen()">
+<h1 ng-bind="eventoMouse"></h1>
+</div>
+<script type="text/javascript">
+	var moduleInit = angular.module('eventApp', [])
+	moduleInit.controller('contoller1', [ '$scope', function($scope){
+		$scope.eventoClickSimple=function(){
+ 				$scope.eventoClick="Click simple"
+ 			}
+ 			$scope.eventoDobleClick=function(){
+ 				$scope.eventoClick="Doble Click"
+ 			}
+ 			$scope.dejaImagen=function(){
+ 				$scope.eventoMouse="Fuera Imagen"
+ 			}
+ 			$scope.sobreImagen=function(){
+ 				$scope.eventoMouse="Dentro de la imagen"
+ 			}
+	}])
+</script>
+</body>
+</html>
