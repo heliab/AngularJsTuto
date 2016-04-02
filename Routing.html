@@ -1,10 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='routingApp'>
 <head>
 	<title>Routing Angular</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.3/angular-route.min.js"></script>
+    <style>
+        header{
+            background-color: aquamarine;
+            color: chocolate;
+            border-bottom: 8px;
+            font-size: 24px;
+        }
+        li{
+            font-size: 15px;
+            font-style: italic;
+            color: seagreen;
+        }
+        ul.menu li{
+           display: inline;
+        }
+
+        ul.menu li a {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px 4px 0 0;
+        }
+        ul#menu {
+    padding: 0;
+}
+
+
+    </style>
 </head>
 <body>
 
+    <div ng-include src=" 'routingFiles/header.html' " ></div>
+     <div ng-include src=" 'routingFiles/Menu.html' " ></div>
+    <div>
+        <p>Anexando con routing</p>
+    </div>
+    <div ng-include src=" 'routingFiles/lista.html' "></div>
+
+    <div ng-view><!-- El ng-view devuelve la configuracion que realizamos de angular-->
+
+    </div>
+    <script>
+    var myModule=angular.module('routingApp',['ngRoute'])
+
+    //Gracias a routeprovider se puede modificar la ruta del documento
+    myModule.config(['$routeProvider',
+                     function($routeProvider){
+                         $routeProvider.when('/ruta/angularShield', {
+                            templateUrl:'RoutingFiles/Imagen1.html',
+                            }).when('/ruta/angular',{ templateUrl: 'routingFiles/imagen2.html', }
+                                   ).otherwise({redirectTo:'/', //al momento de llegar a la raiz, cargue inicio.html
+                                templeateUrl:'RoutingFiles/Imagen2.html',
+                            }
+                            )
+                           } ])
+
+    </script>
 </body>
 </html>
